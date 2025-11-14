@@ -1,4 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Portal</title>
 
-<!DOCTYPE html><html><body>
-<h1>Game Portal</h1><p>Открой через Telegram WebApp кнопками бота.</p>
-</body></html>
+    <!-- Telegram WebApp -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0e0e0e;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            width: 90%;
+            max-width: 400px;
+            padding: 15px;
+            margin: 10px auto;
+            background: #1c1c1c;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            border: 1px solid #333;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #2a2a2a;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎮 Game Portal</h1>
+    <p>Выбери игру ниже:</p>
+
+    <div class="btn" onclick="openGame('2048')">🧩 2048</div>
+    <div class="btn" onclick="openGame('tetris')">🧱 Тетрис</div>
+    <div class="btn" onclick="openGame('flappy')">🐦 Flappy Bird</div>
+    <div class="btn" onclick="openGame('doodle')">🧗 Doodle Jump</div>
+    <div class="btn" onclick="openGame('mario')">🍄 Mario</div>
+    <div class="btn" onclick="openGame('sudoku')">🧠 Sudoku</div>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // полноэкранный режим
+
+        function openGame(name) {
+            const url = `games/${name}/index.html`;
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
